@@ -1,8 +1,13 @@
+using BBWebProject.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
+var connn = builder.Configuration.GetConnectionString("defaultconnection").ToString();
+builder.Services.AddDbContext<BBWebDbContext>(options => options.UseSqlServer(connn));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
