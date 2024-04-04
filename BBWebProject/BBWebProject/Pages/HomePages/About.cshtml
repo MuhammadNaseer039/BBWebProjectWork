@@ -35,9 +35,15 @@
     <!-- Template Stylesheet -->
     <link href="~/css/style.css" rel="stylesheet">
     <style>
-        .container-xxl .text-primary {
-            color: rgb(213, 16, 22);
+        .color {
+            padding: 10px; /* Adjust padding as needed */
         }
+
+            .color img {
+                height: 300px;
+                width: 100px;
+            }
+
     </style>
 </head>
 
@@ -54,16 +60,17 @@
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
-                    <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>Restoran</h1>
-                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                    <div class="color">
+                        <img src="~/img/bar_and_bite.png" alt="Bar and Bite Image">
+                    </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="/Index" class="nav-item nav-link active">Home</a>
-                        <a href="/HomePages/About" class="nav-item nav-link">About</a>
+                        <a href="/Index" class="nav-item nav-link ">Home</a>
+                        <a href="/HomePages/About" class="nav-item nav-link active">About</a>
                         <a href="/HomePages/Service" class="nav-item nav-link">Service</a>
                         @* <a href="/HomePages/Menu" class="nav-item nav-link">Menu</a> *@
                         <div class="nav-item dropdown">
@@ -80,18 +87,19 @@
                 </div>
             </nav>
 
-            <div class="container-xxl py-5 bg-dark text-primary hero-header mb-5">
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
                 <div class="container text-center my-5 pt-5 pb-4">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown" >About Us</h1>
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center text-uppercase">
-                            <li><a href="#" >Home</a></li>
-                            <li><a href ="#">Pages</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page" >About</li>
+                            <li class="breadcrumb-item"><a href="/Index">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/Index">Pages</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">About</li>
                         </ol>
                     </nav>
                 </div>
             </div>
+           
 
         </div>
         <!-- Navbar & Hero End -->
