@@ -1,0 +1,98 @@
+﻿@page
+@model BBWebProject.Pages.Issues.Items.AddItemModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Item Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styling for form */
+        .form-container {
+            background-color: #e3f2fd; /* Light blue background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Custom styling for form elements */
+        .form-control {
+            background-color: #fff; /* White background */
+        }
+
+            .form-control:focus {
+                border-color: #03a9f4; /* Focus color - Sky blue */
+                box-shadow: 0 0 0 0.2rem rgba(3, 169, 244, 0.25);
+            }
+
+        .btn-container {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .btn-add {
+            background-color: #03a9f4; /* Sky blue button */
+            color: #fff; /* White text */
+        }
+
+            .btn-add:hover {
+                background-color: #0288d1; /* Darker blue on hover */
+            }
+
+        .btn-cancel {
+            margin-right: 10px;
+        }
+
+        .text-danger {
+            color: #dc3545; /* Red color for error messages */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="form-container">
+                    <h2 class="text-center mb-4">Add Item Form</h2>
+                    <form method="post" asp-page-handler="Create" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label asp-for="@Model.items.Title">Title</label>
+                            <input asp-for="@Model.items.Title" class="form-control" placeholder="Enter title">
+                            <span class="text-danger" asp-validation-for="@Model.items.Title"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.items.Description">Description</label>
+                            <textarea class="form-control" asp-for="@Model.items.Description" rows="3" placeholder="Enter description"></textarea>
+                            <span class="text-danger" asp-validation-for="@Model.items.Description"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.items.Price">Price</label>
+                            <input asp-for="@Model.items.Price" class="form-control" id="price" placeholder="Enter price">
+                            <span class="text-danger" asp-validation-for="@Model.items.Price"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.items.Photo">Image</label>
+                            <input asp-for="@Model.items.Photo" class="form-control-file" id="image">
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="btn-container">
+                            <button type="button" class="btn btn-secondary btn-cancel"><a asp-page="/Issues/Items/Index" style="color:white">Cancel</a></button>
+                            <button type="submit" class="btn btn-add">Add Item</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

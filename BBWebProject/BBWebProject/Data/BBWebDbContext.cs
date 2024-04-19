@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BBWebProject.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BBWebProject.Data
 {
@@ -8,5 +9,7 @@ namespace BBWebProject.Data
         {
             
         }
+
+        public DbSet<Item> tbl_item { get; set; }
     }
 }
