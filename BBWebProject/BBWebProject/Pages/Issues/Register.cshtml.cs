@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace BBWebProject.Pages.Admin
+namespace BBWebProject.Pages.Issues
 {
     public class RegisterModel : PageModel
     {
