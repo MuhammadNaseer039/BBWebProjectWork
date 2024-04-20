@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BBWebProject.Models
 {
-    public class Testimonials
+    public class Testimonial
     {
         [Key]
         public int ID { get; set; }
