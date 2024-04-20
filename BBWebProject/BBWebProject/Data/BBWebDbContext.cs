@@ -11,5 +11,6 @@ namespace BBWebProject.Data
         }
 
         public DbSet<Item> tbl_item { get; set; }
+        public DbSet<Testimonials> tbl_testimonials { get; set; }
     }
 }
