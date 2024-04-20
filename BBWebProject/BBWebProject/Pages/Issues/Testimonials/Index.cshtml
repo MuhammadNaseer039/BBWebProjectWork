@@ -1,0 +1,105 @@
+﻿@page
+@model BBWebProject.Pages.Issues.Testimonials.IndexModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>-Testimonials</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .circle-img {
+            border-radius: 50%;
+            overflow: hidden;
+            width: 50px; /* Adjust size as needed */
+            height: 50px; /* Adjust size as needed */
+            margin: 0 auto;
+            display: block;
+        }
+
+            .circle-img img {
+                width: 100%;
+                height: auto;
+            }
+
+        .table-lightblue {
+            background-color: #e3f2fd; /* Light blue background */
+        }
+
+            .table-lightblue th,
+            .table-lightblue td {
+                color: #000; /* Black text */
+            }
+
+        /* Custom styling for table header */
+        .table-header-skyblue {
+            background-color: #03a9f4; /* Sky blue background */
+            color: #fff; /* White text */
+        }
+
+        /* Custom styling for table rows */
+        .table tbody tr:hover {
+            background-color: #f2f2f2; /* Gray background on hover */
+        }
+
+        /* Custom styling for table container */
+        .table-container {
+            text-align: center;
+        }
+
+        /* Custom styling for heading alignment */
+        .heading-align-right {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-6 heading-align-right">
+                <h2>Testimonials Detail</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-10 table-container">
+                <table class="table table-bordered table-lightblue">
+                    <thead class="table-header-skyblue">
+                        <tr>
+                            <th>Name</th>
+                            <th>Profession</th>
+                            <th>Review</th>
+                            <th>Image</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.testimonials)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Profession</td>
+                                <td>@item.Review</td>
+                                <td class="circle-img"><img src="~/images/@item.Image" alt="@item.Image"></td>
+                                <td>
+                                    <a asp-page="/Issues/Testimonials/UpdateTestimonials" asp-route-id="@item.ID" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Edit</a>
+                                    <form method="post" asp-page-handler="Delete" asp-route-id="@item.ID">
+                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+
+</html>
