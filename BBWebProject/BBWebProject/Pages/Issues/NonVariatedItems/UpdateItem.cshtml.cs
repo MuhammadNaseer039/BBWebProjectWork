@@ -9,7 +9,7 @@ namespace BBWebProject.Pages.Issues.Items
     {
         private readonly BBWebDbContext db;
         private readonly IWebHostEnvironment env;
-        public Item items {  get; set; }
+        public Non_Variated_Items items {  get; set; }
         public UpdateItemModel(BBWebDbContext _db, IWebHostEnvironment _env)
         {
             db = _db;
@@ -18,12 +18,12 @@ namespace BBWebProject.Pages.Issues.Items
         }
         public void OnGet(int id)
         {
-            items = db.tbl_item.Find(id);
+            items = db.tbl_non_variated_items.Find(id);
         }
         [HttpPost]
-        public IActionResult OnPostUpdate(Item items)
+        public IActionResult OnPostUpdate(Non_Variated_Items items)
         {
-            Item update = new Item();
+            Non_Variated_Items update = new Non_Variated_Items();
             update.Id = items.Id;
             update.Title = items.Title;
             update.Description = items.Description;
@@ -40,7 +40,7 @@ namespace BBWebProject.Pages.Issues.Items
             {
                 update.Image = items.Image;
             }
-            db.tbl_item.Update(update);
+            db.tbl_non_variated_items.Update(update);
             db.SaveChanges();
             return RedirectToPage("Index");
         }

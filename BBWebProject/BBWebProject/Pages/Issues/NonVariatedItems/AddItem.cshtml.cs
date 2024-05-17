@@ -11,7 +11,7 @@ namespace BBWebProject.Pages.Issues.Items
         private readonly BBWebDbContext db;
         private readonly IWebHostEnvironment env;
         [BindProperty]
-        public Item items { get; set; }
+        public Non_Variated_Items items { get; set; }
         public AddItemModel(BBWebDbContext _db, IWebHostEnvironment _env)
         {
             db = _db;
@@ -20,9 +20,9 @@ namespace BBWebProject.Pages.Issues.Items
         public void OnGet()
         {
         }
-        public IActionResult OnPostCreate(Item items) 
+        public IActionResult OnPostCreate(Non_Variated_Items items) 
         {
-            Item newitem = new Item();
+            Non_Variated_Items newitem = new Non_Variated_Items();
             newitem.Title = items.Title;
             newitem.Description = items.Description;
             newitem.Price = items.Price;
@@ -32,7 +32,7 @@ namespace BBWebProject.Pages.Issues.Items
             var imagepath = Path.Combine(folder,items.Photo.FileName);
             items.Photo.CopyTo(new FileStream(imagepath, FileMode.Create));
 
-            db.tbl_item.Add(newitem);
+            db.tbl_non_variated_items.Add(newitem);
             db.SaveChanges();
 
             return RedirectToPage("Index");

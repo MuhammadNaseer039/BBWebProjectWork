@@ -1,0 +1,105 @@
+﻿@page
+@model BBWebProject.Pages.Issues.Chiefs.AddChiefModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Chief Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styling for form */
+        .form-container {
+            background-color: #e3f2fd; /* Light blue background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Custom styling for form elements */
+        .form-control {
+            background-color: #fff; /* White background */
+        }
+
+            .form-control:focus {
+                border-color: #03a9f4; /* Focus color - Sky blue */
+                box-shadow: 0 0 0 0.2rem rgba(3, 169, 244, 0.25);
+            }
+
+        .btn-container {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .btn-add {
+            background-color: #03a9f4; /* Sky blue button */
+            color: #fff; /* White text */
+        }
+
+            .btn-add:hover {
+                background-color: #0288d1; /* Darker blue on hover */
+            }
+
+        .btn-cancel {
+            margin-right: 10px;
+        }
+
+        .text-danger {
+            color: #dc3545; /* Red color for error messages */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="form-container">
+                    <h2 class="text-center mb-4">Add Chief Details</h2>
+                    <form method="post" asp-page-handler="Create" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label asp-for="@Model.chief.Name">Title</label>
+                            <input asp-for="@Model.chief.Name" class="form-control" placeholder="Enter Name">
+                            <span class="text-danger" asp-validation-for="@Model.chief.Name"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.chief.Designation">Description</label>
+                            <textarea class="form-control" asp-for="@Model.chief.Designation" rows="3" placeholder="Enter Designation"></textarea>
+                            <span class="text-danger" asp-validation-for="@Model.chief.Designation"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.chief.Facebook">Facebook</label>
+                            <input asp-for="@Model.chief.Facebook" class="form-control" id="price" placeholder="Enter Facebook">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.chief.Instagram">Instagram</label>
+                            <input asp-for="@Model.chief.Instagram" class="form-control" id="price" placeholder="Enter Instagram">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.chief.Twitter">Twitter</label>
+                            <input asp-for="@Model.chief.Twitter" class="form-control" id="price" placeholder="Enter Twitter">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.chief.Photo">Image</label>
+                            <input asp-for="@Model.chief.Photo" class="form-control-file" id="image">
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="btn-container">
+                            <button type="button" class="btn btn-secondary btn-cancel"><a asp-page="/Issues/Chiefs/Index" style="color:white">Cancel</a></button>
+                            <button type="submit" class="btn btn-add">Add Chief</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

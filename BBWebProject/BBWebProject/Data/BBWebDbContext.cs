@@ -10,7 +10,9 @@ namespace BBWebProject.Data
             
         }
 
-        public DbSet<Item> tbl_item { get; set; }
+        public DbSet<Non_Variated_Items> tbl_non_variated_items { get; set; }
         public DbSet<Testimonial> tbl_testimonials { get; set; }
+        public DbSet<Chief> tbl_chief { get; set;}
+        public DbSet<Profile> tbl_profile { get; set; }
     }
 }
