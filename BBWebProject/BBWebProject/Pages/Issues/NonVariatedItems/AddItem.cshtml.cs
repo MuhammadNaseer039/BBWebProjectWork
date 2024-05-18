@@ -12,6 +12,7 @@ namespace BBWebProject.Pages.Issues.Items
         private readonly IWebHostEnvironment env;
         [BindProperty]
         public Non_Variated_Items items { get; set; }
+        public List<Category> categories { get; set; }
         public AddItemModel(BBWebDbContext _db, IWebHostEnvironment _env)
         {
             db = _db;
@@ -19,6 +20,7 @@ namespace BBWebProject.Pages.Issues.Items
         }
         public void OnGet()
         {
+            categories = db.tbl_category.ToList();
         }
         public IActionResult OnPostCreate(Non_Variated_Items items) 
         {
@@ -26,6 +28,7 @@ namespace BBWebProject.Pages.Issues.Items
             newitem.Title = items.Title;
             newitem.Description = items.Description;
             newitem.Price = items.Price;
+            newitem.CategoryId = items.CategoryId;
             newitem.Image = items.Photo.FileName;
 
             var folder = Path.Combine(env.WebRootPath, "images");

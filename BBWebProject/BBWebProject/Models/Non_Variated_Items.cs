@@ -13,6 +13,8 @@ namespace BBWebProject.Models
         public string Description { get; set; }
         [Required(ErrorMessage ="Please Enter Price")]
         public string Price { get; set; }
+        [Required(ErrorMessage ="Select Category")]
+        public int CategoryId { get; set; }
         public string Image { get; set; }
 
         [NotMapped]
