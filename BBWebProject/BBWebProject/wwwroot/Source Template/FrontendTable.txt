@@ -1,8 +1,4 @@
-﻿@page
-@model BBWebProject.Pages.Issues.Chiefs.IndexModel
-@{
-}
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 
 <head>
@@ -38,30 +34,30 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">FaceBook Link</th>
-                    <th scope="col">Instagram Link</th>
-                    <th scope="col">Twitter Link</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Action</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model.chiefs)
                     {
                         <tr>
-                            <td>@item.Name</td>
-                            <td>@item.Designation</td>
-                            <td>@item.Facebook</td>
-                            <td>@item.Instagram</td>
-                            <td>@item.Twitter</td>
+                            <td>@item.</td>
+                            <td>@item.</td>
+                            <td>@item.</td>
+                            <td>@item.</td>
+                            <td>@item.</td>
                             <td>
-                                <img src="~/images/@item.Image" alt="@item.Image">
+                                <img src="~/images/@item." alt="@item.">
                             </td>
                             <td id="fix">
-                                <a asp-page="/Issues/Chiefs/UpdateChief" asp-route-id="@item.Id" class="btn btn-md btn-primary"><i class="fas fa-edit"></i></a>
-                                <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id">
+                                <a asp-page="/Issues//Update" asp-route-id="@item." class="btn btn-md btn-primary"><i class="fas fa-edit"></i></a>
+                                <form method="post" asp-page-handler="Delete" asp-route-id="@item.">
                                     <button type="submit" class="btn btn-md btn-danger"><i class="fas fa-trash"></i></button>
                                 </form>
                             </td>

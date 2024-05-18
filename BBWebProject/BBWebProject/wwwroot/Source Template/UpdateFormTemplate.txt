@@ -1,8 +1,4 @@
-﻿@page
-@model BBWebProject.Pages.Issues.Chiefs.AddChiefModel
-@{
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,7 +8,6 @@
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Custom styling for form */
 /*         .form-container {
             background-color: #e3f2fd; 
             padding: 20px;
@@ -58,38 +53,43 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="form-container">
-                    <h2 class="text-center mb-4">Add Chief Details</h2>
-                    <form method="post" asp-page-handler="Create" enctype="multipart/form-data">
+                    <h2 class="text-center mb-4">Update Details</h2>
+                    <form method="post" asp-page-handler="Update" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label asp-for="@Model.chief.Name">Title</label>
-                            <input asp-for="@Model.chief.Name" class="form-control" placeholder="Enter Name">
-                            <span class="text-danger" asp-validation-for="@Model.chief.Name"></span>
+                            <label asp-for="@Model."></label>
+                            <input asp-for="@Model." class="form-control" placeholder="Enter ">
+                            <span class="text-danger" asp-validation-for="@Model."></span>
+                            <input asp-for="@Model." type="hidden"/>
+                            <input asp-for="@Model." type="hidden"/>
                         </div>
                         <div class="form-group">
-                            <label asp-for="@Model.chief.Designation">Description</label>
-                            <textarea class="form-control" asp-for="@Model.chief.Designation" rows="3" placeholder="Enter Designation"></textarea>
-                            <span class="text-danger" asp-validation-for="@Model.chief.Designation"></span>
+                            <label asp-for="@Model."></label>
+                            <textarea asp-for="@Model." class="form-control"  rows="3" placeholder="Enter "></textarea>
+                            <span class="text-danger" asp-validation-for="@Model."></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="@Model.chief.Facebook">Facebook</label>
-                            <input asp-for="@Model.chief.Facebook" class="form-control" id="price" placeholder="Enter Facebook">
+                            <label asp-for="@Model."></label>
+                            <input asp-for="@Model." class="form-control" id="price" placeholder="Enter ">
+                            <span class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="@Model.chief.Instagram">Instagram</label>
-                            <input asp-for="@Model.chief.Instagram" class="form-control" id="price" placeholder="Enter Instagram">
+                            <label asp-for="@Model."></label>
+                            <input asp-for="@Model." class="form-control" id="price" placeholder="Enter ">
+                            <span class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="@Model.chief.Twitter">Twitter</label>
-                            <input asp-for="@Model.chief.Twitter" class="form-control" id="price" placeholder="Enter Twitter">
+                            <label asp-for="@Model."></label>
+                            <input asp-for="@Model." class="form-control" id="price" placeholder="Enter ">
+                            <span class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="@Model.chief.Photo">Image</label>
-                            <input asp-for="@Model.chief.Photo" class="form-control-file" id="image">
+                            <label asp-for="@Model."></label>
+                            <input asp-for="@Model." class="form-control-file" >
                             <span class="text-danger"></span>
                         </div>
                         <div class="btn-container">
-                            <button type="button" class="btn btn-secondary btn-cancel"><a asp-page="/Issues/Chiefs/Index" style="color:white">Cancel</a></button>
-                            <button type="submit" class="btn btn-add">Add Chief</button>
+                            <button type="button" class="btn btn-secondary btn-cancel"><a asp-page="/Issues//Index" style="color:white">Cancel</a></button>
+                            <button type="submit" class="btn btn-success">Update </button>
                         </div>
                     </form>
                 </div>
