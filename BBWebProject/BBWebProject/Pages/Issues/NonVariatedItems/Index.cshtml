@@ -86,7 +86,7 @@
                                 <td>@item.Price</td>
                                 <td class="circle-img"><img src="~/images/@item.Image" alt="@item.Image"></td>
                                 <td>
-                                    <a asp-page="/Issues/Items/UpdateItem" asp-route-id="@item.Id" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Edit</a>
+                                    <a asp-page="/Issues/NonVariatedItems/UpdateItem" asp-route-id="@item.Id" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Edit</a>
                                     <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id">
                                         <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>
                                     </form>

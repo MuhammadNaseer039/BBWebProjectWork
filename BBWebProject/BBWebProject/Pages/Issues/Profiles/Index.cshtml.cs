@@ -3,29 +3,28 @@ using BBWebProject.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace BBWebProject.Pages.Issues.Items
+namespace BBWebProject.Pages.Issues.Profiles
 {
     public class IndexModel : PageModel
     {
         private readonly BBWebDbContext db;
-
-        public List<Item> items {  get; set; }
-        public Item itemdelete { get; set; }
+        public List<Profile> profiles { get; set; }
+        public Profile profile { get; set; }
         public IndexModel(BBWebDbContext _db)
         {
             db = _db;
         }
         public void OnGet()
         {
-            items = db.tbl_item.ToList();
+            profiles = db.tbl_profile.ToList();
         }
-
         public IActionResult OnPostDelete(int id)
         {
-            itemdelete = db.tbl_item.Find(id);
-            db.tbl_item.Remove(itemdelete);
+            profile = db.tbl_profile.Find(id);
+            db.tbl_profile.Remove(profile);
             db.SaveChanges();
             return RedirectToPage("Index");
         }
+
     }
 }
