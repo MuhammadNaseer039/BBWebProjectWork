@@ -38,7 +38,6 @@ namespace BBWebProject.Pages.Issues.Testimonials
             {
                 test.Image = testimonial.Image;
             }
-
             db.tbl_testimonials.Update(test);
             db.SaveChanges();
             return RedirectToPage("Index");
