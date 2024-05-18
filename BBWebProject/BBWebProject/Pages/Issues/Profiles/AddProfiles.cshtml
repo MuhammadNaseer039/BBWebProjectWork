@@ -2,3 +2,108 @@
 @model BBWebProject.Pages.Issues.Profiles.AddProfilesModel
 @{
 }
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Profile</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /*         .form-container {
+                    background-color: #e3f2fd;
+                    padding: 20px;
+                    border-radius: 10px;
+                }s
+                .form-control {
+                    background-color: #fff;
+                }
+
+                    .form-control:focus {
+                        border-color: #03a9f4;
+                        box-shadow: 0 0 0 0.2rem rgba(3, 169, 244, 0.25);
+                    }
+         */
+        .btn-container {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .btn-add {
+            background-color: #03a9f4; /* Sky blue button */
+            color: #fff; /* White text */
+        }
+
+            .btn-add:hover {
+                background-color: #0288d1; /* Darker blue on hover */
+            }
+
+        .btn-cancel {
+            margin-right: 10px;
+        }
+
+        .text-danger {
+            color: #dc3545; /* Red color for error messages */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="form-container">
+                    <h2 class="text-center mb-4">Add Profile Details</h2>
+                    <form method="post" asp-page-handler="Create" >
+                        <div class="form-group">
+                            <label asp-for="@Model.profile.Address">Address</label>
+                            <input asp-for="@Model.profile.Address" class="form-control" placeholder="Enter Address">
+                            <span class="text-danger" asp-validation-for="@Model.profile.Address"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.profile.PhoneNumber">PhoneNumber</label>
+                            <input asp-for="@Model.profile.PhoneNumber" class="form-control" placeholder="Enter PhoneNumber" />
+                            <span class="text-danger" asp-validation-for="@Model.profile.PhoneNumber"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.profile.Email">Email</label>
+                            <input asp-for="@Model.profile.Email" class="form-control" id="price" placeholder="Enter Email">
+                            <span class="text-danger" asp-validation-for="@Model.profile.Email"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.profile.Facebook">Facebook</label>
+                            <input asp-for="@Model.profile.Facebook" class="form-control" id="price" placeholder="Enter Facebook Link">
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.profile.Instagram">Instagram</label>
+                            <input asp-for="@Model.profile.Instagram" class="form-control" id="price" placeholder="Enter Instagram Link">
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.profile.Youtube">Youtube</label>
+                            <input asp-for="@Model.profile.Youtube" class="form-control" id="price" placeholder="Enter Youtube Link">
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.profile.Twitter">Twitter</label>
+                            <input asp-for="@Model.profile.Twitter" class="form-control" id="price" placeholder="Enter Twitter Link">
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="btn-container">
+                            <button type="button" class="btn btn-secondary btn-cancel"><a asp-page="/Issues/Profiles/Index" style="color:white">Cancel</a></button>
+                            <button type="submit" class="btn btn-add">Add Profile</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
