@@ -62,7 +62,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="form-container">
-                    <h2 class="text-center mb-4">Update Item Form</h2>
+                    <h2 class="text-center mb-4">Update Item</h2>
                     <form method="post" asp-page-handler="Update" enctype="multipart/form-data">
                         <div class="form-group">
                             <label asp-for="@Model.items.Title">Title</label>
@@ -87,7 +87,7 @@
                             <span class="text-danger"></span>
                         </div>
                         <div class="btn-container">
-                            <button type="button" class="btn btn-secondary btn-cancel"><a asp-page="/Issues/Items/Index" style="color:white">Cancel</a></button>
+                            <button type="button" class="btn btn-secondary btn-cancel"><a asp-page="/Issues/NonVariatedItems/Index" style="color:white">Cancel</a></button>
                             <button type="submit" class="btn btn-success">Update Item</button>
                         </div>
                     </form>

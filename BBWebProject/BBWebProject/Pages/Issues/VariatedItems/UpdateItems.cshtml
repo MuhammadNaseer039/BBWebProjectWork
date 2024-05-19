@@ -1,0 +1,124 @@
+﻿@page
+@model BBWebProject.Pages.Issues.VariatedItems.UpdateItemsModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Variated Items</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /*         .form-container {
+                    background-color: #e3f2fd;
+                    padding: 20px;
+                    border-radius: 10px;
+                }
+
+
+                .form-control {
+                    background-color: #fff;
+                }
+
+                    .form-control:focus {
+                        border-color: #03a9f4;
+                        box-shadow: 0 0 0 0.2rem rgba(3, 169, 244, 0.25);
+                    }
+         */
+        .btn-container {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .btn-add {
+            background-color: #03a9f4; /* Sky blue button */
+            color: #fff; /* White text */
+        }
+
+            .btn-add:hover {
+                background-color: #0288d1; /* Darker blue on hover */
+            }
+
+        .btn-cancel {
+            margin-right: 10px;
+        }
+
+        .text-danger {
+            color: #dc3545; /* Red color for error messages */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="form-container">
+                    <h2 class="text-center mb-4">Update Variated Items Detail</h2>
+                    <form method="post" asp-page-handler="Update" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label asp-for="@Model.variateditem.Title">Title</label>
+                            <input asp-for="@Model.variateditem.Title" class="form-control" placeholder="Enter Title">
+                            <span class="text-danger" asp-validation-for="@Model.variateditem.Title"></span>
+                            <input asp-for="@Model.variateditem.ID" type="hidden"/>
+                            <input asp-for="@Model.variateditem.Image" type="hidden"/>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.variateditem.Description">Description</label>
+                            <input asp-for="@Model.variateditem.Description" class="form-control" placeholder="Enter Description" />
+                            <span class="text-danger" asp-validation-for="@Model.variateditem.Description"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.variateditem.Regular">Regular</label>
+                            <input asp-for="@Model.variateditem.Regular" class="form-control" id="price" placeholder="Enter Regular">
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.variateditem.Large">Large</label>
+                            <input asp-for="@Model.variateditem.Large" class="form-control" id="price" placeholder="Enter Large">
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.variateditem.Medium"></label>
+                            <input asp-for="@Model.variateditem.Medium" class="form-control" id="price" placeholder="Enter Medium">
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.variateditem.Small"></label>
+                            <input asp-for="@Model.variateditem.Small" class="form-control" id="price" placeholder="Enter Small">
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.variateditem.CategoryId">Category</label>
+                            <select asp-for="@Model.variateditem.CategoryId" class="form-control">
+                                @foreach (var item in Model.categories)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.variateditem.Photo"></label>
+                            <input asp-for="@Model.variateditem.Photo" class="form-control-file">
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="btn-container">
+                            <button type="button" class="btn btn-secondary btn-cancel"><a asp-page="/Issues/VariatedItems/Index" style="color:white">Cancel</a></button>
+                            <button type="submit" class="btn btn-success">Update Item</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

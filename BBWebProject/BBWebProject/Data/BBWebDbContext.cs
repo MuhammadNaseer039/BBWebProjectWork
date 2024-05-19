@@ -15,5 +15,6 @@ namespace BBWebProject.Data
         public DbSet<Chief> tbl_chief { get; set;}
         public DbSet<Profile> tbl_profile { get; set; }
         public DbSet<Category> tbl_category { get; set; }
+        public DbSet<Variated_Items> tbl_variated_items { get; set; }
     }
 }

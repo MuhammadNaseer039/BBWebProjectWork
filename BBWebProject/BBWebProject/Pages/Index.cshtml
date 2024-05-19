@@ -76,9 +76,12 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Menu</a>
                             <div class="dropdown-menu m-0">
-                                <a href="/HomePages/Service" class="dropdown-item">Pizza</a>
-                                <a href="#" class="dropdown-item">Burger</a>
-                                <a href="#" class="dropdown-item">Zinger Burger</a>
+                            @foreach(var item in Model.categories)
+                            {
+                                
+                                    <a href="/HomePages/Service" class="dropdown-item">@item.Name</a>
+                                
+                            }
                             </div>
                         </div>
                         <a href="/HomePages/Contact" class="nav-item nav-link">Contact</a>

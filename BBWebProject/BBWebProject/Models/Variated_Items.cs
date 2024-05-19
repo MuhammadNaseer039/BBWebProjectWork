@@ -12,10 +12,11 @@ namespace BBWebProject.Models
         [Required(ErrorMessage ="Enter Description")]
         public string Description { get; set; }
         public string Image { get; set; }
-        public string Regular { get; set; }
-        public string Large { get; set; }
-        public string Medium { get; set; }
-        public string Small { get; set; }
+        public int CategoryId { get; set; }
+        public int Regular { get; set; }
+        public int Large { get; set; }
+        public int Medium { get; set; }
+        public int Small { get; set; }
         [NotMapped]
         public IFormFile Photo { get; set; }
 
