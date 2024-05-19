@@ -27,7 +27,7 @@
         #fix {
             width: 120px;
             display: flex;
-            justify-content: space-between;
+          
         }
     </style>
 </head>
@@ -60,7 +60,7 @@
                         <td>@item.Youtube</td>
                         <td>@item.Twitter</td>
                         <td id="fix">
-                            <a asp-page="/Issues/Profiles/UpdateProfiles" asp-route-id="@item.Id" class="btn btn-md btn-primary"><i class="fas fa-edit"></i></a>
+                            <a asp-page="/Issues/Profiles/UpdateProfiles" asp-route-id="@item.Id" class="btn btn-md btn-primary mr-2"><i class="fas fa-edit"></i></a>
                             <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id">
                                 <button type="submit" class="btn btn-md btn-danger"><i class="fas fa-trash"></i></button>
                             </form>

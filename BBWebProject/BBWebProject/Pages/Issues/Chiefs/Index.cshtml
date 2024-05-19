@@ -25,9 +25,10 @@
         }
         #fix
         {
-            width:120px;
-            display:flex;
-            justify-content:space-between;
+            width: 120px;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
         }
     </style>
 </head>
@@ -60,7 +61,7 @@
                                 <img src="~/images/@item.Image" alt="@item.Image">
                             </td>
                             <td id="fix">
-                                <a asp-page="/Issues/Chiefs/UpdateChief" asp-route-id="@item.Id" class="btn btn-md btn-primary"><i class="fas fa-edit"></i></a>
+                                <a asp-page="/Issues/Chiefs/UpdateChief" asp-route-id="@item.Id" class="btn btn-md btn-primary mr-2"><i class="fas fa-edit"></i></a>
                                 <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id">
                                     <button type="submit" class="btn btn-md btn-danger"><i class="fas fa-trash"></i></button>
                                 </form>

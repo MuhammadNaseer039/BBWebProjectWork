@@ -14,7 +14,7 @@
     <style>
         /* Custom styling for form */
         .form-container {
-            background-color: #e3f2fd; /* Light blue background */
+          
             padding: 20px;
             border-radius: 10px;
         }
@@ -50,6 +50,10 @@
         .text-danger {
             color: #dc3545; /* Red color for error messages */
         }
+
+        .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+            background-color: white;
+        }
     </style>
 </head>
 
@@ -58,7 +62,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="form-container">
-                    <h2 class="text-center mb-4">Add Item Form</h2>
+                    <h2 class="text-center mb-4">Update Item Form</h2>
                     <form method="post" asp-page-handler="Update" enctype="multipart/form-data">
                         <div class="form-group">
                             <label asp-for="@Model.items.Title">Title</label>
