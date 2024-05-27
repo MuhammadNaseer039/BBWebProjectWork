@@ -1,1 +1,31 @@
-﻿@RenderBody()
+﻿<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+    <a href="" class="navbar-brand p-0">
+        <div class="color">
+            <img src="~/img/bar_and_bite.png" alt="Bar and Bite Image">
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="fa fa-bars"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-0 pe-4">
+            <a href="/Index" class="nav-item nav-link active">Home</a>
+            <a href="/HomePages/About" class="nav-item nav-link">About</a>
+            @* <a href="/HomePages/Menu" class="nav-item nav-link">Menu</a> *@
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Menu</a>
+                <div class="dropdown-menu m-0">
+                    @foreach (var item in Model.categories)
+                    {
+
+                        <a href="/HomePages/Service" class="dropdown-item">@item.Name</a>
+
+                    }
+                </div>
+            </div>
+            <a href="/HomePages/Contact" class="nav-item nav-link">Contact</a>
+        </div>
+        <a href="/HomePages/Booking" class="btn btn-primary py-2 px-4">Place Order</a>
+    </div>
+</nav>
+@RenderBody()

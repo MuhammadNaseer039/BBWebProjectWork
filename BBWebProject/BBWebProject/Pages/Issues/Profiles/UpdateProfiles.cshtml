@@ -99,6 +99,11 @@
                             <input asp-for="@Model.profile.Twitter" class="form-control" id="price" placeholder="Enter Twitter Link">
                             <span class="text-danger"></span>
                         </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.profile.Tiktok">Tiktok</label>
+                            <input asp-for="@Model.profile.Tiktok" class="form-control" id="price" placeholder="Enter Tiktok Link">
+                            <span class="text-danger"></span>
+                        </div>
                         <div class="btn-container">
                             <button type="button" class="btn btn-secondary btn-cancel"><a asp-page="/Issues/Profiles/Index" style="color:white">Cancel</a></button>
                             <button type="submit" class="btn btn-success">Update Profile</button>
