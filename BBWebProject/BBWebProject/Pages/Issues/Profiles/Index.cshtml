@@ -45,6 +45,7 @@
                     <th scope="col">Instagram</th>
                     <th scope="col">Youtube</th>
                     <th scope="col">Twitter</th>
+                    <th scope="col">Tiktok</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -59,6 +60,7 @@
                         <td>@item.Instagram</td>
                         <td>@item.Youtube</td>
                         <td>@item.Twitter</td>
+                        <td>@item.Tiktok</td>
                         <td id="fix">
                             <a asp-page="/Issues/Profiles/UpdateProfiles" asp-route-id="@item.Id" class="btn btn-md btn-primary mr-2"><i class="fas fa-edit"></i></a>
                             <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id">

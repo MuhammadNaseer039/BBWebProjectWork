@@ -34,43 +34,50 @@
 </head>
 
 <body>
-    <div class="container">
-        <h2 class="text-left">Chiefs Detail</h2>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">FaceBook Link</th>
-                    <th scope="col">Instagram Link</th>
-                    <th scope="col">Twitter Link</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.chiefs)
-                    {
+  
+        <div class="container">
+            <h2 class="text-left">Chiefs Detail</h2>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                <table class="table table-hover">
+                    <thead>
                         <tr>
-                            <td>@item.Name</td>
-                            <td>@item.Designation</td>
-                            <td>@item.Facebook</td>
-                            <td>@item.Instagram</td>
-                            <td>@item.Twitter</td>
-                            <td>
-                                <img src="~/images/@item.Image" alt="@item.Image">
-                            </td>
-                            <td id="fix">
-                                <a asp-page="/Issues/Chiefs/UpdateChief" asp-route-id="@item.Id" class="btn btn-md btn-primary mr-2"><i class="fas fa-edit"></i></a>
-                                <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id">
-                                    <button type="submit" class="btn btn-md btn-danger"><i class="fas fa-trash"></i></button>
-                                </form>
-                            </td>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">FaceBook Link</th>
+                            <th scope="col">Instagram Link</th>
+                            <th scope="col">Twitter Link</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Action</th>
                         </tr>
-                    }
-            </tbody>
-        </table>
-    </div>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.chiefs)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Designation</td>
+                                <td>@item.Facebook</td>
+                                <td>@item.Instagram</td>
+                                <td>@item.Twitter</td>
+                                <td>
+                                    <img src="~/images/@item.Image" alt="@item.Image" >
+                                </td>
+                                <td id="fix">
+                                    <a asp-page="/Issues/Chiefs/UpdateChief" asp-route-id="@item.Id" class="btn btn-md btn-primary mr-2"><i class="fas fa-edit"></i></a>
+                                    <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id">
+                                        <button type="submit" class="btn btn-md btn-danger"><i class="fas fa-trash"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>    
+                </table>
+            </div>
+        </div>
+   
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
             crossorigin="anonymous"></script>

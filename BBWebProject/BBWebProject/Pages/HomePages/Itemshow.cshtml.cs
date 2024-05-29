@@ -1,24 +1,22 @@
 using BBWebProject.Data;
+using BBWebProject.Migrations;
 using BBWebProject.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace BBWebProject.Pages
+namespace BBWebProject.Pages.HomePages
 {
-    public class IndexModel : PageModel
+    public class ItemshowModel : PageModel
     {
-        private readonly BBWebDbContext db;
+        BBWebDbContext db;
         public List<Category> categories { get; set; }
-        public List<Chief> chief { get; set; }  
-        public IndexModel(BBWebDbContext _db)
+        public ItemshowModel(BBWebDbContext _db)
         {
             db = _db;
         }
         public void OnGet()
         {
-            chief=db.tbl_chief.ToList();
             categories = db.tbl_category.ToList();
-
         }
     }
 }

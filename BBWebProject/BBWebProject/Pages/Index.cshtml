@@ -45,6 +45,12 @@
             width:100px;
         }
 
+        .fixed-size-img {
+            width: 100%; /* Set your desired width */
+            height: 200px; /* Set your desired height */
+            object-fit: cover;
+        }
+
     </style>
 </head>
 
@@ -141,29 +147,35 @@
                     </div>
                     <div class="col-lg-6">
                         <h5 class="section-title ff-secondary text-start text-primary fw-normal">About Us</h5>
-                        <h1 class="mb-4">Welcome to <i class="fa fa-utensils text-primary me-2"></i>Restoran</h1>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos erat ipsum et lorem et sit, sed stet lorem sit.</p>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <h1 class="mb-4">Welcome to <i class="fa fa-utensils text-primary me-2"></i>Bar & Bite</h1>
+                        <p class="mb-4"> we are dedicated to providing our guests with a warm and inviting atmosphere, whether you're here for a casual meal, a special celebration, or a night out with friends. </p>
+                        <p class="mb-4">Our menu is crafted with the finest ingredients, offering a diverse selection of dishes that cater to all tastes.</p>
                         <div class="row g-4 mb-4">
                             <div class="col-sm-6">
                                 <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">21</h1>
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0">
+                                        <span data-toggle="counter-up" >100</span>+
+                                    </h1>
                                     <div class="ps-4">
-                                        <p class="mb-0">Years of</p>
-                                        <h6 class="text-uppercase mb-0">Experience</h6>
+                                        <p class="mb-0">Satisfied</p>
+                                        <h6 class="text-uppercase mb-0">customer</h6>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">50</h1>
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0">
+                                        <span data-toggle="counter-up" data-target="">1000</span>+
+                                    </h1>
                                     <div class="ps-4">
-                                        <p class="mb-0">Popular</p>
-                                        <h6 class="text-uppercase mb-0">Master Chefs</h6>
+                                        <p class="mb-0">Good</p>
+                                        <h6 class="text-uppercase mb-0">Reviews</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
                         <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
                     </div>
                 </div>
@@ -521,65 +533,27 @@
                     <h1 class="mb-5">Our Master Chefs</h1>
                 </div>
                 <div class="row g-4">
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="~/img/team-1.jpg" alt="">
-                            </div>
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="~/img/team-2.jpg" alt="">
-                            </div>
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                    @foreach (var item in Model.chief)
+                    {
+                        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="team-item text-center rounded overflow-hidden">
+                                <div class="rounded-circle overflow-hidden m-4">
+                                    <img class="img-fluid fixed-size-img" src="~/images/@item.Image" alt="Chief Image Not Available">
+                                </div>
+                                <h5 class="mb-0">@item.Name</h5>
+                                <small>@item.Designation</small>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <a class="btn btn-square btn-primary mx-1" href="@item.Facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href="@item.Twitter"><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-square btn-primary mx-1" href="@item.Instagram"><i class="fab fa-instagram"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="~/img/team-3.jpg" alt="">
-                            </div>
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="~/img/team-4.jpg" alt="">
-                            </div>
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    }
                 </div>
             </div>
         </div>
+
         <!-- Team End -->
         <!-- Testimonial Start -->
         <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">

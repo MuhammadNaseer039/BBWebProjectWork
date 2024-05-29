@@ -16,5 +16,6 @@ namespace BBWebProject.Models
         public string Instagram { get; set; }
         public string Youtube { get; set; }
         public string Twitter { get; set; }
+        public string Tiktok { get; set; }
     }
 }
