@@ -9,7 +9,7 @@ namespace BBWebProject.Pages.HomePages
     {
         private readonly BBWebDbContext db;
         public List<Category> categories { get; set; }
-
+        public Profile profile { get; set; }
         public ServiceModel(BBWebDbContext _db)
         {
             db = _db;
@@ -17,6 +17,8 @@ namespace BBWebProject.Pages.HomePages
         public void OnGet()
         {
             categories = db.tbl_category.ToList();
+            profile = db.tbl_profile.FirstOrDefault();
+
         }
     }
 }
