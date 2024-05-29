@@ -7,15 +7,5 @@ namespace BBWebProject.Pages.HomePages
 {
     public class ServiceModel : PageModel
     {
-        BBWebDbContext db;
-        public List<Category> categories { get; set; }
-        public ServiceModel(BBWebDbContext _db)
-        {
-            db = _db;
-        }
-        public void OnGet()
-        {
-            categories = db.tbl_category.ToList();
-        }
     }
 }
