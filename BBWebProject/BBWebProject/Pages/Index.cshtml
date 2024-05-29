@@ -79,7 +79,7 @@
                             @foreach(var item in Model.categories)
                             {
                                 
-                                    <a href="/HomePages/Service" class="dropdown-item">@item.Name</a>
+                                    <a asp-page="/HomePages/Service" class="dropdown-item" asp-route-slug="@item.Slug">@item.Name</a>
                                 
                             }
                             </div>
