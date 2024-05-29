@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BBWebProject.Models
 {
@@ -13,6 +14,7 @@ namespace BBWebProject.Models
         public string Profession { get; set; }
         [Required(ErrorMessage ="Please Enter review")]
         public string Review { get; set; }
+        [MaybeNull]
         public string Image { get; set; }
         [NotMapped]
         public IFormFile Photo { get; set; }

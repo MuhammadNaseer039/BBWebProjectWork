@@ -29,6 +29,7 @@ namespace BBWebProject.Pages.Issues.Profiles
             pro.Instagram = profile.Instagram;
             pro.Youtube = profile.Youtube;
             pro.Twitter = profile.Twitter;
+            pro.Tiktok = profile.Tiktok;
             db.tbl_profile.Update(pro);
             db.SaveChanges();
             return RedirectToPage("Index");

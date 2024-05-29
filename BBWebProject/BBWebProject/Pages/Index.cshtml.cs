@@ -9,7 +9,9 @@ namespace BBWebProject.Pages
     {
         private readonly BBWebDbContext db;
         public List<Category> categories { get; set; }
-        public List<Chief> chief { get; set; }  
+        public List<Chief> chief { get; set; }
+        public List<Testimonial> testimonials { get; set; }
+        public Profile profile { get; set; }
         public IndexModel(BBWebDbContext _db)
         {
             db = _db;
@@ -18,6 +20,8 @@ namespace BBWebProject.Pages
         {
             chief=db.tbl_chief.ToList();
             categories = db.tbl_category.ToList();
+            testimonials = db.tbl_testimonials.OrderByDescending(x => x.ID).Take(4).OrderBy(x => x.ID).ToList();
+            profile = db.tbl_profile.FirstOrDefault();
 
         }
     }
