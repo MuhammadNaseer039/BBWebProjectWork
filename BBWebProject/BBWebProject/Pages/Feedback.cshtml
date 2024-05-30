@@ -350,29 +350,24 @@
               <div class="row">
                 <div class="col-md-6 form-group mb-3">
                   <label asp-for="@Model.testimonial.Name" class="col-form-label">Name *</label>
-                                    <input asp-for="@Model.testimonial.Name" class="form-control" placeholder="Your name">
+                 <input asp-for="@Model.testimonial.Name" required class="form-control" placeholder="Your name">
                 </div>
                 <div class="col-md-6 form-group mb-3">
                   <label asp-for="@Model.testimonial.Profession" class="col-form-label">Profession *</label>
-                  <input asp-for="@Model.testimonial.Profession" class="form-control" placeholder="Your Professional">
+                  <input asp-for="@Model.testimonial.Profession" required class="form-control" placeholder="Your Professional">
                 </div>
               </div>
 
-              <div class="row">
+            <div class="row">
                 <div class="col-md-12 form-group mb-3">
-                    <small>Write Max 15 words</small>
+                    
                     <label asp-for="@Model.testimonial.Review" class="col-form-label">Message *</label>
-                    <textarea asp-for="@Model.testimonial.Review" class="form-control" cols="30" rows="4"
-                    placeholder="Write your message"></textarea>
+                    <textarea asp-for="@Model.testimonial.Review"  required id="limitedTextarea" class="form-control" placeholder="Write your message"></textarea>
+                    <p id="wordCount">Words: 0/15</p>
                 </div>
-              </div>
-              <button type="submit">Submit</button>
-             @*  <div class="row">
-                <div class="col-md-12 form-group">
-                  <button type="submit" class="btn btn-primary rounded-0 py-2 px-4">Submit</button>
-                  <span class="submitting"></span>
-                </div>
-              </div> *@
+            </div>
+             <button class="btn btn-primary rounded-0 py-2 px-4" id="submit" type="submit">Submit</button>
+           
             </form>
 
             <div id="form-message-warning mt-4"></div>
@@ -402,35 +397,23 @@
   </div>
 
 
- @*  <script>
-    let popup = document.getElementById("popup");
+    <script>
+       
+        document.getElementById('limitedTextarea').addEventListener('input', function () {
+            const maxWords = 15;
+            const textarea = this;
+            const wordCountElement = document.getElementById('wordCount');
 
-    function openpopup() {
-      popup.classList.add("openpopup");
-    }
+            let words = textarea.value.split(/\s+/).filter(word => word.length > 0);
 
-    function closepopup() {
-      popup.classList.remove("openpopup");
-    }
+            if (words.length > maxWords) {
+                textarea.value = words.slice(0, maxWords).join(' ');
+                words = words.slice(0, maxWords);
+            }
 
-    // Function to handle form submission
-    function submitForm(event) {
-      event.preventDefault(); // Prevent default form submission
-
-      // Your form submission logic here (e.g., AJAX request, form validation)
-
-      // Simulating form submission success
-      setTimeout(function () {
-        openpopup(); // Show popup after successful form submission
-      }, 1000); // Adjust delay as needed
-    }
-
-    // Add event listener to form submission
-    document.querySelector('form').addEventListener('submit', submitForm);
-  </script>
- *@
-
-
+            wordCountElement.textContent = `Words: ${words.length}/${maxWords}`;
+        });
+    </script>
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>

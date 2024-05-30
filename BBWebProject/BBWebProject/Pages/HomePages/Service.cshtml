@@ -44,6 +44,112 @@
                 width: 100px;
             }
 
+        * {
+            user-select: none;
+        }
+        .image-card {
+            display: flex;
+            justify-content: center;
+        }
+
+            .image-card img {
+                height: 100px;
+                width: 100px;
+                border-radius: 70px;
+            }
+
+       select {
+            background-color: red;
+           padding:8px;
+           border:none;
+           border-radius:5px;
+
+        }
+
+
+        .btn-secondary {
+            background-color: red;
+            border-color: red;
+        }
+
+            .btn-secondary:hover,
+            .btn-secondary:focus,
+            .btn-secondary:active {
+                background-color: black;
+                border-color: black;
+            }
+
+        .CartBtn {
+            width: 140px;
+            height: 40px;
+            border-radius: 12px;
+            border: none;
+            background-color: rgb(255, 208, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition-duration: .5s;
+            overflow: hidden;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
+            position: relative;
+           
+
+        }
+
+            .CartBtn.active {
+                background-color: rgb(0, 128, 0); /* Green color */
+                border-color: rgb(0, 128, 0);
+                color: white;
+            }
+
+        .IconContainer {
+            position: absolute;
+            left: -50px;
+            width: 30px;
+            height: 30px;
+            background-color: transparent;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            z-index: 2;
+            transition-duration: .5s;
+        }
+
+        .icon {
+            border-radius: 1px;
+        }
+
+        .text {
+            height: 100%;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(17, 17, 17);
+            z-index: 1;
+            transition-duration: .5s;
+            font-size: 1.04em;
+            font-weight: 600;
+        }
+
+        .CartBtn:hover .IconContainer {
+            transform: translateX(58px);
+            border-radius: 40px;
+            transition-duration: .5s;
+        }
+
+        .CartBtn:hover .text {
+            transform: translate(10px, 0px);
+            transition-duration: .5s;
+        }
+
+        .CartBtn:active {
+            transform: scale(0.95);
+            transition-duration: .5s;
+        }
     </style>
 </head>
 
@@ -58,7 +164,6 @@
         <!-- Spinner End -->
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
-          
             <div class="container-xxl py-5 bg-dark hero-header mb-5">
                 <div class="container text-center my-5 pt-5 pb-4">
                     <h1 class="display-3 text-white mb-3 animated slideInDown">Pizza</h1>
@@ -84,8 +189,9 @@
                     <div class="col-lg-4 col-sm-6" data-wow-delay="0.1s">
                         <div class="service-item rounded pt-1">
                             <div class="p-3">
-                                @* <i class="fa fa-3x fa-user-tie text-primary mb-4"></i> *@
-                                <i class="fa fa-3x fa-pizza-slice text-primary mb-4"></i>
+                                <div class="image-card">
+                                    <img src="~/images/danyal.png" />
+                                </div>
                                 <h5>Fojita Pizza</h5>
                                 <p>This is Our Special Fojita Pizza</p>
                                 <table class="table">
@@ -106,134 +212,39 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <select>
+                                                <option class="dropdown-item" value="Small" href="#">Size</option>
+                                                <option class="dropdown-item" value="Small" href="#">Small</option>
+                                                <option class="dropdown-item" value="Medium" href="#">Medium</option>
+                                                <option class="dropdown-item" value="Large" href="#">Large</option>
+                                            </select>
+
+                                           
+                                        </div>
+                                        <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                            <button class="CartBtn">
+                                                <span class="IconContainer">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" fill="rgb(17, 17, 17)" class="cart">
+                                                        <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path>
+                                                    </svg>
+                                                </span>
+                                                <p class="text mb-0">Add to Cart</p>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6" data-wow-delay="0.1s">
-                        <div class="service-item rounded pt-1">
-                            <div class="p-3">
-                                @* <i class="fa fa-3x fa-user-tie text-primary mb-4"></i> *@
-                                <i class="fa fa-3x fa-pizza-slice text-primary mb-4"></i>
-                                <h5>Fojita Pizza</h5>
-                                <p>This is Our Special Fojita Pizza</p>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Regular</th>
-                                            <th>Large</th>
-                                            <th>Medium</th>
-                                            <th>Small</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1300RS</td>
-                                            <td>1500RS</td>
-                                            <td>1000RS</td>
-                                            <td>800RS</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6" data-wow-delay="0.1s">
-                        <div class="service-item rounded pt-1">
-                            <div class="p-3">
-                                @* <i class="fa fa-3x fa-user-tie text-primary mb-4"></i> *@
-                                <i class="fa fa-3x fa-pizza-slice text-primary mb-4"></i>
-                                <h5>Fojita Pizza</h5>
-                                <p>This is Our Special Fojita Pizza</p>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Regular</th>
-                                            <th>Large</th>
-                                            <th>Medium</th>
-                                            <th>Small</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1300RS</td>
-                                            <td>1500RS</td>
-                                            <td>1000RS</td>
-                                            <td>800RS</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>  
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x fa-utensils text-primary mb-4"></i>
-                                <h5>Quality Food</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x fa-cart-plus text-primary mb-4"></i>
-                                <h5>Online Order</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x fa-headset text-primary mb-4"></i>
-                                <h5>24/7 Service</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
-                                <h5>Master Chefs</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x fa-utensils text-primary mb-4"></i>
-                                <h5>Quality Food</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x fa-cart-plus text-primary mb-4"></i>
-                                <h5>Online Order</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x fa-headset text-primary mb-4"></i>
-                                <h5>24/7 Service</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Repeat similar blocks for other food items -->
                 </div>
             </div>
         </div>
         <!-- Service End -->
         <!-- Footer Start -->
-    
         <!-- Footer End -->
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
@@ -250,6 +261,20 @@
     <script src="~/lib/tempusdominus/js/moment.min.js"></script>
     <script src="~/lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="~/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="~/js/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var cartButtons = document.querySelectorAll('.CartBtn');
+
+            cartButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    this.classList.toggle('active');
+                });
+            });
+        });
+    </script>
 
     <!-- Template Javascript -->
     <script src="~/js/main.js"></script>
