@@ -12,6 +12,8 @@ namespace BBWebProject.Models
         public string Description { get; set; }
         [Required(ErrorMessage = "Enter Category Slug")]
         public string Slug { get; set; }
+        [Required]
+        public bool status { get; set; }
 
     }
 }
