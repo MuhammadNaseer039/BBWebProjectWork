@@ -39,7 +39,7 @@ namespace BBWebProject.Pages.Issues.VariatedItems
             db.tbl_variated_items.Add(newitem);
             db.SaveChanges();
 
-            return RedirectToPage("Index");
+            return RedirectToPage("AddItems");
         }
     }
 }
