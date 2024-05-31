@@ -5,12 +5,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BBWebProject.Pages.HomePages
 {
-    public class ServiceModel : PageModel
+    public class ItemsModel : PageModel
     {
         private readonly BBWebDbContext db;
         public List<Category> categories { get; set; }
         public Profile profile { get; set; }
-        public ServiceModel(BBWebDbContext _db)
+        public ItemsModel(BBWebDbContext _db)
         {
             db = _db;
         }
