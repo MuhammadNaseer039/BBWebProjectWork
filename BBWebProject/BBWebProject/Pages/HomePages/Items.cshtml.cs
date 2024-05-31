@@ -10,15 +10,32 @@ namespace BBWebProject.Pages.HomePages
     {
         private readonly BBWebDbContext db;
         public List<Category> categories { get; set; }
+        public List<Non_Variated_Items> Items { get; set; }
+        public List<Variated_Items> variated_items { get; set; }
+        public Category category { get; set; }
         public Profile profile { get; set; }
         public string title = "";
+        public bool status = false;
         public ItemsModel(BBWebDbContext _db)
         {
             db = _db;
         }
         public void OnGet(string slug)
         {
-            title = "Special Pizza";
+            category = db.tbl_category.Where(s => s.Slug == slug).FirstOrDefault();
+
+            if(category.status)
+            {
+                variated_items = db.tbl_variated_items.Where(x => x.CategoryId == category.Id).ToList();
+                status = true;
+            }
+            else
+            {
+                Items = db.tbl_non_variated_items.Where(s => s.CategoryId == category.Id).ToList();
+            }
+
+            title = category.Name;
+            
             categories = db.tbl_category.ToList();
             profile = db.tbl_profile.FirstOrDefault();
 

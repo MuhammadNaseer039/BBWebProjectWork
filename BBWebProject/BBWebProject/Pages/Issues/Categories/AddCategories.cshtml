@@ -72,6 +72,15 @@
                             <input asp-for="@Model.category.Slug" class="form-control" placeholder="Enter Slug">
                             <span class="text-danger" asp-validation-for="@Model.category.Slug"></span>
                         </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.category.status">Variation</label>
+                            <select asp-for="@Model.category.status" class="form-control">
+                                <option value="">---Select---</option>
+                                <option value="True">True</option>
+                                <option value="False">False</option>
+                            </select>
+                            <span class="text-danger" asp-validation-for="@Model.category.status"></span>
+                        </div>
                         <div class="btn-container">
                             <button type="button" class="btn btn-secondary btn-cancel"><a asp-page="/Issues/Categories/Index" style="color:white">Cancel</a></button>
                             <button type="submit" class="btn btn-add">Add Category</button>

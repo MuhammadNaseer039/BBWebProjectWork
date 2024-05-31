@@ -25,6 +25,7 @@ namespace BBWebProject.Pages.Issues.Categories
             cat.Name = category.Name;
             cat.Description = category.Description;
             cat.Slug = category.Slug;
+            cat.status = category.status;
             db.tbl_category.Update(cat);
             db.SaveChanges();
             return RedirectToPage("Index");
