@@ -37,8 +37,11 @@
 
 <body>
     <div class="container">
-        <h2 class="text-left">Items Detail</h2>
-        <a asp-page="/Issues/NonVariatedItems/AddItem">Add Item</a>
+       <div class="d-flex justify-content-between">
+            <h2 class="text-left">Items Detail</h2>    
+            <a asp-page="/Issues/NonVariatedItems/AddItem" class="btn btn-primary">Add Item</a>
+       </div>
+
         <table class="table table-hover">
             <thead>
                 <tr>
