@@ -2,6 +2,7 @@ using BBWebProject.Data;
 using BBWebProject.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Xml.Linq;
 
 namespace BBWebProject.Pages.Issues.Categories
 {
@@ -9,13 +10,14 @@ namespace BBWebProject.Pages.Issues.Categories
     {
         private readonly BBWebDbContext db;
         public Category category { get; set; }
+        public string Name = "";
         public AddCategoriesModel(BBWebDbContext _db)
         {
             db = _db;
         }
         public void OnGet()
         {
-
+            Name = HttpContext.Session.GetString("Name");
         }
         public IActionResult OnPostCreate(Category category)
         {
