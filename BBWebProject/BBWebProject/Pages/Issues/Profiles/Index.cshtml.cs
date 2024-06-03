@@ -10,6 +10,7 @@ namespace BBWebProject.Pages.Issues.Profiles
         private readonly BBWebDbContext db;
         public List<Profile> profiles { get; set; }
         public Profile profile { get; set; }
+        public string Name = "";
         public IndexModel(BBWebDbContext _db)
         {
             db = _db;
@@ -17,6 +18,7 @@ namespace BBWebProject.Pages.Issues.Profiles
         public void OnGet()
         {
             profiles = db.tbl_profile.ToList();
+            Name = HttpContext.Session.GetString("Name");
         }
         public IActionResult OnPostDelete(int id)
         {
@@ -24,6 +26,11 @@ namespace BBWebProject.Pages.Issues.Profiles
             db.tbl_profile.Remove(profile);
             db.SaveChanges();
             return RedirectToPage("Index");
+        }
+        public IActionResult OnPostLogout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToPage("/Issues/Login");
         }
 
     }

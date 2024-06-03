@@ -10,6 +10,7 @@ namespace BBWebProject.Pages.Issues.Chiefs
         private readonly BBWebDbContext db;
         private readonly IWebHostEnvironment env;
         public Chief chief { get; set; }
+        public string Name = "";
         public AddChiefModel(BBWebDbContext _db,IWebHostEnvironment _env)
         {
             db = _db;
@@ -17,7 +18,7 @@ namespace BBWebProject.Pages.Issues.Chiefs
         }
         public void OnGet()
         {
-
+            Name = HttpContext.Session.GetString("Name");
         }
         public IActionResult OnPostCreate(Chief chief)
         {

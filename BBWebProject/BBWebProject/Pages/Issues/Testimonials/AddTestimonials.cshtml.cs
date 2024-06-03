@@ -10,6 +10,7 @@ namespace BBWebProject.Pages.Issues.Testimonials
         private readonly BBWebDbContext db;
         private readonly IWebHostEnvironment env;
         public Testimonial testimonial { get; set; }
+        public string Name = "";
         public AddTestimonialsModel(BBWebDbContext _db, IWebHostEnvironment env)
         {
             db = _db;
@@ -18,6 +19,7 @@ namespace BBWebProject.Pages.Issues.Testimonials
         }
         public void OnGet()
         {
+            Name = HttpContext.Session.GetString("Name");
         }
         [HttpPost]
         public IActionResult OnPost(Testimonial testimonial)

@@ -11,6 +11,7 @@ namespace BBWebProject.Pages.Issues.VariatedItems
 
         public List<Variated_Items> variateditems { get; set; }
         public Variated_Items itemtoremove { get; set; }
+        public string Name = "";
 
         public IndexModel(BBWebDbContext _db)
         {
@@ -20,6 +21,7 @@ namespace BBWebProject.Pages.Issues.VariatedItems
         public void OnGet()
         {
             variateditems = db.tbl_variated_items.ToList();
+            Name = HttpContext.Session.GetString("Name");
         }
         public IActionResult OnPostDelete(int id)
         {
@@ -27,6 +29,11 @@ namespace BBWebProject.Pages.Issues.VariatedItems
             db.tbl_variated_items.Remove(itemtoremove);
             db.SaveChanges();
             return RedirectToPage("Index");
+        }
+        public IActionResult OnPostLogout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToPage("/Issues/Login");
         }
     }
 }

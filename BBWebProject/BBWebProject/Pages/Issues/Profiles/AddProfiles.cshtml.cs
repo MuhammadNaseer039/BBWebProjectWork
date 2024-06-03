@@ -9,13 +9,14 @@ namespace BBWebProject.Pages.Issues.Profiles
     {
         private readonly BBWebDbContext db;
         public Profile profile { get; set; }
+        public string Name = "";
         public AddProfilesModel(BBWebDbContext _db)
         {
             db = _db;
         }
         public void OnGet()
         {
-
+            Name = HttpContext.Session.GetString("Name");
         }
         public IActionResult OnPostCreate(Profile profile)
         {
