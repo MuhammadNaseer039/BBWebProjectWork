@@ -27,50 +27,75 @@
         #fix {
             width: 120px;
             display: flex;
-          
         }
+
+        .table-responsive {
+            max-height: 90vh;  
+            overflow-x: auto;
+            max-width:100%;
+            overflow-y:auto;
+        }
+
+        .Add-button {
+            margin: 5px;
+            padding: 8px;
+            background-color: #0B5ED7;
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+        }
+
+            .Add-button:hover {
+                color: white;
+                text-decoration: none;
+            }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h2 class="text-left">Profile Detail</h2>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Address</th>
-                    <th scope="col">Phone Number</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Facebook</th>
-                    <th scope="col">Instagram</th>
-                    <th scope="col">Youtube</th>
-                    <th scope="col">Twitter</th>
-                    <th scope="col">Tiktok</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.profiles)
-                {
+        <div class="d-flex justify-content-between">
+            <h2 class="text-left">Profile Detail</h2>
+            <a asp-page="/Issues/NonVariatedItems/AddItem" class="Add-button">Add Item</a>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
                     <tr>
-                        <td>@item.Address</td>
-                        <td>@item.PhoneNumber</td>
-                        <td>@item.Email</td>
-                        <td>@item.Facebook</td>
-                        <td>@item.Instagram</td>
-                        <td>@item.Youtube</td>
-                        <td>@item.Twitter</td>
-                        <td>@item.Tiktok</td>
-                        <td id="fix">
-                            <a asp-page="/Issues/Profiles/UpdateProfiles" asp-route-id="@item.Id" class="btn btn-md btn-primary mr-2"><i class="fas fa-edit"></i></a>
-                            <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id">
-                                <button type="submit" class="btn btn-md btn-danger"><i class="fas fa-trash"></i></button>
-                            </form>
-                        </td>
+                        <th  scope="col">Address</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Facebook</th>
+                        <th scope="col">Instagram</th>
+                        <th scope="col">Youtube</th>
+                        <th scope="col">Twitter</th>
+                        <th scope="col">Tiktok</th>
+                        <th scope="col">Action</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.profiles)
+                    {
+                        <tr>
+                            <td>@item.Address</td>
+                            <td>@item.PhoneNumber</td>
+                            <td>@item.Email</td>
+                            <td>@item.Facebook</td>
+                            <td>@item.Instagram</td>
+                            <td>@item.Youtube</td>
+                            <td>@item.Twitter</td>
+                            <td>@item.Tiktok</td>
+                            <td id="fix">
+                                <a asp-page="/Issues/Profiles/UpdateProfiles" asp-route-id="@item.Id" class="btn btn-md btn-primary mr-2"><i class="fas fa-edit"></i></a>
+                                <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id">
+                                    <button type="submit" class="btn btn-md btn-danger"><i class="fas fa-trash"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
