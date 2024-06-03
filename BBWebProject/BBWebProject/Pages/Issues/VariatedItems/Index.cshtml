@@ -30,48 +30,75 @@
             justify-content: space-between;
             padding:20px;
         }
+
+        .table-responsive {
+            max-height: 70vh;
+            overflow-x: auto;
+            max-width: 100%;
+            overflow-y: auto;
+        }
+
+        .Add-button {
+            margin: 5px;
+            padding: 8px;
+            background-color: #0B5ED7;
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+        }
+
+            .Add-button:hover {
+                color: white;
+                text-decoration: none;
+            }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h2 class="text-left">Variated Items Detail</h2>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Regular</th>
-                    <th scope="col">Large</th>
-                    <th scope="col">Medium</th>
-                    <th scope="col">Small</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.variateditems)
-                {
+       
+         <div class="d-flex justify-content-between">
+            <h2 class="text-left">Variated Items Detail</h2>
+      <a asp-page="/Issues/NonVariatedItems/AddItem" class="Add-button">Add Item</a>
+ </div>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
                     <tr>
-                        <td>@item.Title</td>
-                        <td>@item.Description</td>
-                        <td>@item.Regular</td>
-                        <td>@item.Large</td>
-                        <td>@item.Medium</td>
-                        <td>@item.Small</td>
-                        <td>
-                            <img src="~/images/@item.Image" alt="@item.Image">
-                        </td>
-                        <td id="fix">
-                            <a asp-page="/Issues/VariatedItems/UpdateItems" asp-route-id="@item.ID" class="btn btn-md btn-primary mr-3"><i class="fas fa-edit"></i></a>
-                            <form method="post" asp-page-handler="Delete" asp-route-id="@item.ID">
-                                <button type="submit" class="btn btn-md btn-danger"><i class="fas fa-trash"></i></button>
-                            </form>
-                        </td>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Regular</th>
+                        <th scope="col">Large</th>
+                        <th scope="col">Medium</th>
+                        <th scope="col">Small</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Action</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.variateditems)
+                    {
+                        <tr>
+                            <td>@item.Title</td>
+                            <td>@item.Description</td>
+                            <td>@item.Regular</td>
+                            <td>@item.Large</td>
+                            <td>@item.Medium</td>
+                            <td>@item.Small</td>
+                            <td>
+                                <img src="~/images/@item.Image" alt="@item.Image">
+                            </td>
+                            <td id="fix">
+                                <a asp-page="/Issues/VariatedItems/UpdateItems" asp-route-id="@item.ID" class="btn btn-md btn-primary mr-3"><i class="fas fa-edit"></i></a>
+                                <form method="post" asp-page-handler="Delete" asp-route-id="@item.ID">
+                                    <button type="submit" class="btn btn-md btn-danger"><i class="fas fa-trash"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"

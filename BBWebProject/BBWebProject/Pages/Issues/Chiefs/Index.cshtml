@@ -30,15 +30,39 @@
             justify-content: space-between;
             padding: 20px;
         }
+
+        .table-responsive {
+            max-height: 90vh;
+            overflow-x: auto;
+            max-width: 100%;
+            overflow-y: auto;
+        }
+
+        .Add-button {
+            margin: 5px;
+            padding: 8px;
+            background-color: #0B5ED7;
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+        }
+
+            .Add-button:hover {
+                color: white;
+                text-decoration: none;
+            }
     </style>
 </head>
 
 <body>
   
         <div class="container">
+           
+        <div class="d-flex justify-content-between">
             <h2 class="text-left">Chiefs Detail</h2>
+            <a asp-page="/Issues/NonVariatedItems/AddItem" class="Add-button">Add Item</a>
+        </div>
             <div class="table-responsive">
-                <table class="table table-hover">
                 <table class="table table-hover">
                     <thead>
                         <tr>
