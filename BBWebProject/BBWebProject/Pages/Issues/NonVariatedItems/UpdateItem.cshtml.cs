@@ -10,6 +10,7 @@ namespace BBWebProject.Pages.Issues.Items
         private readonly BBWebDbContext db;
         private readonly IWebHostEnvironment env;
         public Non_Variated_Items items {  get; set; }
+        public string Name = "";
         public UpdateItemModel(BBWebDbContext _db, IWebHostEnvironment _env)
         {
             db = _db;
@@ -19,6 +20,7 @@ namespace BBWebProject.Pages.Issues.Items
         public void OnGet(int id)
         {
             items = db.tbl_non_variated_items.Find(id);
+            Name = HttpContext.Session.GetString("Name");
         }
         [HttpPost]
         public IActionResult OnPostUpdate(Non_Variated_Items items)

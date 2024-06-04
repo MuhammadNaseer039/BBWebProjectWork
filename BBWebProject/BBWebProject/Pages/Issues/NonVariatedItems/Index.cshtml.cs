@@ -11,6 +11,7 @@ namespace BBWebProject.Pages.Issues.Items
 
         public List<Non_Variated_Items> items {  get; set; }
         public Non_Variated_Items itemdelete { get; set; }
+        public string Name = "";
         public IndexModel(BBWebDbContext _db)
         {
             db = _db;
@@ -18,6 +19,7 @@ namespace BBWebProject.Pages.Issues.Items
         public void OnGet()
         {
             items = db.tbl_non_variated_items.ToList();
+            Name = HttpContext.Session.GetString("Name");
         }
 
         public IActionResult OnPostDelete(int id)
@@ -26,6 +28,11 @@ namespace BBWebProject.Pages.Issues.Items
             db.tbl_non_variated_items.Remove(itemdelete);
             db.SaveChanges();
             return RedirectToPage("Index");
+        }
+        public IActionResult OnPostLogout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToPage("/Issues/Login");
         }
     }
 }

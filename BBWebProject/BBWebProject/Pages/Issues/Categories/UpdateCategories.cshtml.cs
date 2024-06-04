@@ -3,6 +3,7 @@ using BBWebProject.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using System.Xml.Linq;
 
 namespace BBWebProject.Pages.Issues.Categories
 {
@@ -10,6 +11,7 @@ namespace BBWebProject.Pages.Issues.Categories
     {
         private readonly BBWebDbContext db;
         public Category category { get; set; }
+        public string Name = "";
         public UpdateCategoriesModel(BBWebDbContext _db)
         {
             db = _db;
@@ -17,6 +19,7 @@ namespace BBWebProject.Pages.Issues.Categories
         public void OnGet(int id)
         {
             category = db.tbl_category.Find(id);
+            Name = HttpContext.Session.GetString("Name");
         }
         public IActionResult OnPostUpdate(Category category)
         {

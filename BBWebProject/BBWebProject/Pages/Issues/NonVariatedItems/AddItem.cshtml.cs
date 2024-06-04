@@ -13,6 +13,7 @@ namespace BBWebProject.Pages.Issues.Items
         [BindProperty]
         public Non_Variated_Items items { get; set; }
         public List<Category> categories { get; set; }
+        public string Name = "";
         public AddItemModel(BBWebDbContext _db, IWebHostEnvironment _env)
         {
             db = _db;
@@ -21,6 +22,7 @@ namespace BBWebProject.Pages.Issues.Items
         public void OnGet()
         {
             categories = db.tbl_category.ToList();
+            Name = HttpContext.Session.GetString("Name");
         }
         public IActionResult OnPostCreate(Non_Variated_Items items) 
         {

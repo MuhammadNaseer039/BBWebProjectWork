@@ -9,6 +9,7 @@ namespace BBWebProject.Pages.Issues.Profiles
     {
         private readonly BBWebDbContext db;
         public Profile profile { get; set; }
+        public string Name = "";
         public UpdateProfilesModel(BBWebDbContext _db)
         {
             db = _db;
@@ -16,6 +17,7 @@ namespace BBWebProject.Pages.Issues.Profiles
         public void OnGet(int id)
         {
             profile = db.tbl_profile.Find(id);
+            Name = HttpContext.Session.GetString("Name");
         }
 
         public IActionResult OnPostUpdate(Profile profile)

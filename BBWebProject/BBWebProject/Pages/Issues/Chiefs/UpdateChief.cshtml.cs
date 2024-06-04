@@ -11,6 +11,7 @@ namespace BBWebProject.Pages.Issues.Chiefs
         private readonly IWebHostEnvironment env;
 
         public Chief chief { get; set; }
+        public string Name = "";
 
         public UpdateChiefModel(BBWebDbContext _db,IWebHostEnvironment _env)
         {
@@ -20,6 +21,7 @@ namespace BBWebProject.Pages.Issues.Chiefs
         public void OnGet(int id)
         {
             chief = db.tbl_chief.Find(id);
+            Name = HttpContext.Session.GetString("Name");
         }
         public IActionResult OnPostUpdate(Chief chief)
         {

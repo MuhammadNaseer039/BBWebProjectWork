@@ -11,6 +11,7 @@ namespace BBWebProject.Pages.Issues.VariatedItems
         private readonly IWebHostEnvironment env;
         public Variated_Items variateditem { get; set; }
         public List<Category> categories { get; set; }
+        public string Name = "";
         public AddItemsModel(BBWebDbContext _db,IWebHostEnvironment _env)
         {
             db = _db;
@@ -19,6 +20,7 @@ namespace BBWebProject.Pages.Issues.VariatedItems
         public void OnGet()
         {
             categories = db.tbl_category.ToList();
+            Name = HttpContext.Session.GetString("Name");
         }
         public IActionResult OnPostCreate(Variated_Items variateditem)
         {

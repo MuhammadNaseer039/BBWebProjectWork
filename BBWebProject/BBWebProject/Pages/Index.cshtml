@@ -55,6 +55,10 @@
             user-select: none;
             }
 
+        .testimonial-item{
+            height:170px; 
+        }
+
     </style>
 </head>
 
@@ -152,13 +156,13 @@
                     <div class="col-lg-6">
                         <h5 class="section-title ff-secondary text-start text-primary fw-normal">About Us</h5>
                         <h1 class="mb-4">Welcome to <i class="fa fa-utensils text-primary me-2"></i>Bar & Bite</h1>
-                        <p class="mb-4"> We are dedicated to providing our guests with a warm and inviting atmosphere, whether you're here for a casual meal, a special celebration, or a night out with friends. </p>
+                        <p class="mb-4">We are dedicated to providing our guests with a warm and inviting atmosphere, whether you're here for a casual meal, a special celebration, or a night out with friends.</p>
                         <p class="mb-4">Our menu is crafted with the finest ingredients, offering a diverse selection of dishes that cater to all tastes.</p>
                         <div class="row g-4 mb-4">
                             <div class="col-sm-6">
                                 <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0">
-                                        <span data-toggle="counter-up" >100</span>+
+                                    <h1 id="satisfiedCounter" class="flex-shrink-0 display-5 text-primary mb-0">
+                                        <span data-toggle="counter-up">100</span>+
                                     </h1>
                                     <div class="ps-4">
                                         <p class="mb-0">Satisfied</p>
@@ -168,7 +172,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0">
+                                    <h1 id="reviewsCounter" class="flex-shrink-0 display-5 text-primary mb-0">
                                         <span data-toggle="counter-up" data-target="">1000</span>+
                                     </h1>
                                     <div class="ps-4">
@@ -178,8 +182,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                         <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
                     </div>
                 </div>
@@ -609,6 +611,39 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
 
     <script src="~/js/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the elements for the counters
+            var satisfiedCounter = document.getElementById('satisfiedCounter').getElementsByTagName('span')[0];
+            var reviewsCounter = document.getElementById('reviewsCounter').getElementsByTagName('span')[0];
+
+            // Function to increment counters
+            function incrementCounter(counterElement, targetValue, duration) {
+                var start = 0;
+                var step = targetValue / (duration / 10); // Dividing duration by 10 for finer steps
+                var interval = 10; // Interval between steps in milliseconds
+
+                var timer = setInterval(function () {
+                    start += step;
+                    counterElement.textContent = Math.ceil(start);
+
+                    if (start >= targetValue) {
+                        clearInterval(timer);
+                        counterElement.textContent = targetValue;
+                    }
+                }, interval);
+            }
+
+            // Set the target values and duration for each counter
+            var satisfiedTarget = 100;
+            var reviewsTarget = 1000;
+            var duration = 3000; // Duration in milliseconds
+
+            // Run the counters
+            incrementCounter(satisfiedCounter, satisfiedTarget, duration);
+            incrementCounter(reviewsCounter, reviewsTarget, duration);
+        });
+    </script>
     <script src='https://widgets.sociablekit.com/instagram-feed/widget.js' async defer></script>
 </body>
 
